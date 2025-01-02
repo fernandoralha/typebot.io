@@ -4,20 +4,6 @@ volumes:
   db-data:
 
 services:
-  caddy-gen:
-    container_name: caddy-gen
-    image: 'wemakeservices/caddy-gen:latest'
-    restart: always
-    volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - /opt/typebot.io/caddy-certificates:/data/caddy
-    ports:
-      - '80:80'
-      - '443:443'
-    depends_on:
-      - typebot-builder
-      - typebot-viewer
-
   # typebot-db:
   #   image: postgres:16
   #   restart: always
@@ -42,10 +28,6 @@ services:
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     env_file: .env
-    labels:
-      virtual.host: 'typebuilder.advgrowth.com' # change to your domain name
-      virtual.port: '3000'
-      virtual.tls-email: 'dev@advgrowth.com.br' # change to your email
 
   typebot-viewer:
     image: typeviewer
@@ -56,7 +38,3 @@ services:
     ports:
       - '8081:3000'
     env_file: .env
-    labels:
-      virtual.host: 'typeviewer.advgrowth.com' # change to your domain name
-      virtual.port: '3000'
-      virtual.tls-email: 'dev@advgrowth.com.br' # change to your email
