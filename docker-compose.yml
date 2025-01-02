@@ -18,7 +18,7 @@ services:
   #       timeout: 5s
   #       retries: 5
   typebot-builder:
-    image: fernandoralha/typebot-builder:1.0
+    image: typebuilder
     restart: always
     # depends_on:
     #   typebot-db:
@@ -30,7 +30,7 @@ services:
     env_file: .env
 
   typebot-viewer:
-    image: fernandoralha/typebot-viewer:1.0
+    image: typeviewer
     # depends_on:
     #   typebot-db:
     #     condition: service_healthy
