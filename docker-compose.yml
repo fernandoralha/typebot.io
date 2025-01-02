@@ -10,7 +10,7 @@ services:
     restart: always
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
-      - {$PWD}/.typebot/caddy-certificates:/data/caddy
+      - /opt/typebot.io/caddy-certificates:/data/caddy
     ports:
       - '80:80'
       - '443:443'
