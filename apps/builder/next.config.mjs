@@ -57,6 +57,7 @@ const nextConfig = {
     config.resolve.alias["isolated-vm"] = false;
     return config;
   },
+  
   headers: async () => {
     return [
       {
@@ -64,7 +65,24 @@ const nextConfig = {
         headers: [
           {
             key: "X-Frame-Options",
-            value: "SAMEORIGIN",
+            value: "ALLOWALL",
+          },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
+          {
+            key: "Access-Control-Allow-Credentials",
+            value: "true",
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value:
+              "Origin, X-Requested-With, Content-Type, Accept, Authorization",
           },
         ],
       },
