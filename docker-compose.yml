@@ -18,23 +18,23 @@ services:
   #       timeout: 5s
   #       retries: 5
   typebot-builder:
-    image: typebuilder
+    image: fernandoralha/typebot-builder:1.0
     restart: always
     # depends_on:
     #   typebot-db:
     #     condition: service_healthy
     ports:
-      - '8080:3000'
+      - '8081:3000'
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     env_file: .env
 
   typebot-viewer:
-    image: typeviewer
+    image: fernandoralha/typebot-viewer:1.0
     # depends_on:
     #   typebot-db:
     #     condition: service_healthy
     restart: always
     ports:
-      - '8081:3000'
+      - '8082:3000'
     env_file: .env
